@@ -1,0 +1,42 @@
+{
+  "template": "https://github.com/lkubb/salt-template-formula",
+  "commit": "9ca35064e6d6ca808ce67fde9080fd2be77dd08c",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "_extensions": [
+        "local_extensions.YAMLDumper"
+      ],
+      "_jinja2_env_vars": {
+        "block_start_string": "{!",
+        "block_end_string": "!}",
+        "variable_start_string": "{=",
+        "variable_end_string": "=}",
+        "comment_start_string": "{@",
+        "comment_end_string": "@}"
+      },
+      "name": "Telegraf",
+      "abbr": "telegraf",
+      "abbr_pysafe": "telegraf",
+      "pkg": "telegraf",
+      "needs_repo": "y",
+      "config": "/etc/telegraf/telegraf.conf",
+      "service": "telegraf",
+      "subcomponent": "",
+      "subcomponent_config": "",
+      "git_username": "lkubb",
+      "_lookup": {
+        "envfile": "/etc/default/telegraf",
+        "group": "telegraf",
+        "user": "telegraf",
+        "pip_pkg": "python3-pip"
+      },
+      "_settings": {
+        "config": {},
+        "secrets": {}
+      },
+      "_template": "https://github.com/lkubb/salt-template-formula"
+    }
+  },
+  "directory": null
+}

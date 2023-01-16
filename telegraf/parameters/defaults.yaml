@@ -1,0 +1,25 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+#
+# Set default values.
+---
+values:
+  lookup:
+    rootgroup: root
+    pkg:
+      name: telegraf
+    enablerepo:
+      stable: true
+    config: '/etc/telegraf/telegraf.conf'
+    service:
+      name: telegraf
+    envfile: /etc/default/telegraf
+    group: telegraf
+    pip_pkg: python3-pip
+    user: telegraf
+  config: {}
+  secrets: {}
+  # Just here for testing
+  added_in_defaults: defaults_value
+  winner: defaults
+...

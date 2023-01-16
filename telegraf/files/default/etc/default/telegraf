@@ -1,0 +1,3 @@
+{%- for var, val in telegraf.secrets | dictsort %}
+{{ var }}="{{ val }}"
+{%- endfor %}
