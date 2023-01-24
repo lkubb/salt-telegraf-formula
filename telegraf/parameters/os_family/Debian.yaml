@@ -21,4 +21,8 @@ values:
         key_url: https://repos.influxdata.com/influxdb.key
         file: /etc/apt/sources.list.d/influxdb.list
         aptkey: false
+    plugins:
+      sensors:
+        pkgs:
+          - lm-sensors
 ...

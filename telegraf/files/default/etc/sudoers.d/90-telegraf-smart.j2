@@ -1,0 +1,13 @@
+# Ensure telegraf can execute smartctl as root without password
+# smartctl is always required
+Cmnd_Alias SMARTCTL = {{ telegraf | traverse("config:input:smart:path_smartctl", telegraf.lookup.plugins.smart.smartctl) }}
+{{ telegraf.lookup.user }} ALL=(ALL) NOPASSWD: SMARTCTL
+Defaults!SMARTCTL !logfile, !syslog, !pam_session
+
+{%- if "nvme-cli" in telegraf.lookup.plugins.smart.pkgs %}
+
+# Ensure telegraf can execute nvme as root without password
+Cmnd_Alias NVME = {{ telegraf | traverse("config:input:smart:path_nvme", telegraf.lookup.plugins.smart.nvme) }}
+{{ telegraf.lookup.user }} ALL=(ALL) NOPASSWD: NVME
+Defaults!NVME !logfile, !syslog, !pam_session
+{%- endif %}

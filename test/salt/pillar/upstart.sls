@@ -15,6 +15,17 @@ telegraf:
     envfile: /etc/default/telegraf
     group: telegraf
     pip_pkg: python3-pip
+    plugins:
+      sensors:
+        pkgs:
+          - lm_sensors
+      smart:
+        nvme: /usr/sbin/nvme
+        pkgs:
+          - nvme-cli
+          - smartmontools
+        smartctl: /usr/sbin/smartctl
+    sudoers: /etc/sudoers.d
     user: telegraf
   config: {}
   secrets: {}

@@ -2,12 +2,12 @@
 # vim: ft=sls
 
 {%- set tplroot = tpldir.split('/')[0] %}
-{%- set sls_package_install = tplroot ~ '.package.install' %}
+{%- set sls_plugins_setup = tplroot ~ '.plugins.setup' %}
 {%- from tplroot ~ "/map.jinja" import mapdata as telegraf with context %}
 {%- from tplroot ~ "/libtofs.jinja" import files_switch with context %}
 
 include:
-  - {{ sls_package_install }}
+  - {{ sls_plugins_setup }}
 
 Telegraf secrets are managed:
   file.managed:
@@ -21,7 +21,7 @@ Telegraf secrets are managed:
     - user: root
     - group: {{ telegraf.lookup.group }}
     - require:
-      - sls: {{ sls_package_install }}
+      - sls: {{ sls_plugins_setup }}
     - context:
         telegraf: {{ telegraf | json }}
 
@@ -34,6 +34,6 @@ Telegraf configuration is managed:
     - group: {{ telegraf.lookup.group }}
     - makedirs: True
     - require:
-      - sls: {{ sls_package_install }}
+      - sls: {{ sls_plugins_setup }}
       - file: {{ telegraf.lookup.envfile }}
     - dataset: {{ telegraf.config | json }}

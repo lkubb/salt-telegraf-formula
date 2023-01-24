@@ -8,7 +8,7 @@
 include:
   - {{ sls_config_file }}
 
-telegraf-service-running-service-running:
+Telegraf is running:
   service.running:
     - name: {{ telegraf.lookup.service.name }}
     - enable: True

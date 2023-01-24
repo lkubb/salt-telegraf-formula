@@ -11,7 +11,10 @@ Telegraf is installed:
   pkg.installed:
     - pkgs:
       - {{ telegraf.lookup.pkg.name }}
+{#- for non-onedir installations, we need pip installed to be able to serialize toml files #}
+{%- if not "salt-pip" | which %}
       - {{ telegraf.lookup.pip_pkg }}
+{%- endif %}
 
 TOML module is installed for Telegraf:
   pip.installed:

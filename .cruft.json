@@ -29,7 +29,23 @@
         "envfile": "/etc/default/telegraf",
         "group": "telegraf",
         "user": "telegraf",
-        "pip_pkg": "python3-pip"
+        "pip_pkg": "python3-pip",
+        "plugins": {
+          "sensors": {
+            "pkgs": [
+              "lm_sensors"
+            ]
+          },
+          "smart": {
+            "nvme": "/usr/sbin/nvme",
+            "smartctl": "/usr/sbin/smartctl",
+            "pkgs": [
+              "nvme-cli",
+              "smartmontools"
+            ]
+          }
+        },
+        "sudoers": "/etc/sudoers.d"
       },
       "_settings": {
         "config": {},

@@ -27,7 +27,7 @@ Telegraf {{ reponame }} repository is available:
     - enabled: 1
 {%-     endif %}
     - require_in:
-      - telegraf-package-install-pkg-installed
+      - Telegraf is installed
 
 {%-   else %}
 
@@ -39,6 +39,6 @@ Telegraf {{ reponame }} repository is disabled:
 {%-       endif %}
 {%-     endfor %}
     - require_in:
-      - telegraf-package-install-pkg-installed
+      - Telegraf is installed
 {%-   endif %}
 {%- endfor %}
