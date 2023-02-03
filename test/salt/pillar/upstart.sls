@@ -7,6 +7,8 @@ telegraf:
     # Just for testing purposes
     winner: lookup
     added_in_lookup: lookup_value
+    pkg:
+      name: telegraf
     enablerepo:
       stable: true
     config: '/etc/telegraf/telegraf.conf'
