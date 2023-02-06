@@ -17,7 +17,9 @@ values:
     repos:
       stable:
         humanname: InfluxData stable
-        name: deb [signed-by=/usr/share/keyrings/influxdb-keyring.gpg] https://repos.influxdata.com/debian stable main
+        name: >-
+          deb [signed-by=/usr/share/keyrings/influxdb-keyring.gpg]
+          https://repos.influxdata.com/debian {{ grains["oscodename"] }} main
         key_url: https://repos.influxdata.com/influxdata-archive_compat.key
         file: /etc/apt/sources.list.d/influxdb.list
         aptkey: false
