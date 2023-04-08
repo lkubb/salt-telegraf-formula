@@ -104,6 +104,11 @@ Has a dependency on `telegraf.config`_.
 
 
 
+``telegraf.plugins.fail2ban``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
 ``telegraf.plugins.http_listener_v2``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -185,6 +190,11 @@ Stops the telegraf service and disables it at boot time.
 
 ``telegraf.plugins._pkgs.clean``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+``telegraf.plugins.fail2ban.clean``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 
