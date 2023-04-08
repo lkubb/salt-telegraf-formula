@@ -1,7 +1,6 @@
-# -*- coding: utf-8 -*-
 # vim: ft=sls
 
-{%- set tplroot = tpldir.split('/')[0] %}
+{%- set tplroot = tpldir.split("/")[0] %}
 {%- set sls_plugins_pkgs_installed = tplroot ~ ".plugins._pkgs.installed" %}
 {%- from tplroot ~ "/map.jinja" import mapdata as telegraf with context %}
 

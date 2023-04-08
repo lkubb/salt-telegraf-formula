@@ -1,6 +1,6 @@
 {
   "template": "https://github.com/lkubb/salt-template-formula",
-  "commit": "09d23d7be4069023a5dd2201c3db5b82049391a1",
+  "commit": "a63c03d95375f235c2d4a6159a26ae48d4fdc40b",
   "checkout": null,
   "context": {
     "cookiecutter": {
@@ -25,7 +25,7 @@
       "subcomponent": "",
       "subcomponent_config": "",
       "git_username": "lkubb",
-      "_lookup": {
+      "lookup": {
         "envfile": "/etc/default/telegraf",
         "group": "telegraf",
         "user": "telegraf",
@@ -47,7 +47,7 @@
         },
         "sudoers": "/etc/sudoers.d"
       },
-      "_settings": {
+      "settings": {
         "config": {},
         "secrets": {}
       },

@@ -1,7 +1,6 @@
-# -*- coding: utf-8 -*-
 # vim: ft=sls
 
-{%- set tplroot = tpldir.split('/')[0] %}
+{%- set tplroot = tpldir.split("/")[0] %}
 {%- set sls_plugins_pkgs_installed = tplroot ~ ".plugins._pkgs.installed" %}
 {%- from tplroot ~ "/map.jinja" import mapdata as telegraf with context %}
 {%- from tplroot ~ "/libtofs.jinja" import files_switch with context %}
@@ -9,7 +8,10 @@
 include:
   - {{ sls_plugins_pkgs_installed }}
 
-{%- if (telegraf | traverse("config:inputs:smart") is mapping and telegraf | traverse("config:inputs:smart:use_sudo")) or (telegraf | traverse("config:inputs:smart", []) | selectattr("use_sudo", "defined") | selectattr("use_sudo") | list) %}
+{%- if (telegraf | traverse("config:inputs:smart") is mapping
+    and telegraf | traverse("config:inputs:smart:use_sudo"))
+    or (telegraf | traverse("config:inputs:smart", []) | selectattr("use_sudo", "defined") | selectattr("use_sudo") | list)
+%}
 
 Sudo is installed for telegraf smart plugin:
   pkg.installed:
