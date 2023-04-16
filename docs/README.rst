@@ -71,11 +71,6 @@ and then starts the associated telegraf service.
 Installs the telegraf package only.
 
 
-``telegraf.package.install``
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-
 ``telegraf.package.repo``
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 This state will install the configured telegraf repository.
@@ -126,11 +121,6 @@ Has a dependency on `telegraf.config`_.
 
 ``telegraf.plugins.influxdb_v2_listener.setup``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-
-
-``telegraf.plugins.setup``
-^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
 
