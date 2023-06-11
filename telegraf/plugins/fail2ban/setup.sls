@@ -3,7 +3,7 @@
 {%- set tplroot = tpldir.split("/")[0] %}
 {%- set sls_plugins_pkgs_installed = tplroot ~ ".plugins._pkgs.installed" %}
 {%- from tplroot ~ "/map.jinja" import mapdata as telegraf with context %}
-{%- from tplroot ~ "/libtofs.jinja" import files_switch with context %}
+{%- from tplroot ~ "/libtofsstack.jinja" import files_switch with context %}
 
 include:
   - {{ sls_plugins_pkgs_installed }}
@@ -20,8 +20,10 @@ Sudo is installed for telegraf fail2ban plugin:
 Telegraf user can execute fail2ban-client as root without password:
   file.managed:
     - name: {{ telegraf.lookup.sudoers | path_join("90-telegraf-fail2ban") }}
-    - source: {{ files_switch(["etc/sudoers.d/90-telegraf-fail2ban", "etc/sudoers.d/90-telegraf-fail2ban.j2"],
-                              lookup="Telegraf user can execute fail2ban-client as root without password"
+    - source: {{ files_switch(
+                    ["etc/sudoers.d/90-telegraf-fail2ban", "etc/sudoers.d/90-telegraf-fail2ban.j2"],
+                    config=telegraf,
+                    lookup="Telegraf user can execute fail2ban-client as root without password",
                  )
               }}
     - template: jinja

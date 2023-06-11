@@ -77,18 +77,6 @@ This state will install the configured telegraf repository.
 This works for apt/dnf/yum/zypper-based distributions only by default.
 
 
-``telegraf.config``
-^^^^^^^^^^^^^^^^^^^
-Manages the telegraf service configuration.
-Has a dependency on `telegraf.package`_.
-
-
-``telegraf.service``
-^^^^^^^^^^^^^^^^^^^^
-Starts the telegraf service and enables it at boot time.
-Has a dependency on `telegraf.config`_.
-
-
 ``telegraf.plugins``
 ^^^^^^^^^^^^^^^^^^^^
 
@@ -139,6 +127,18 @@ Has a dependency on `telegraf.config`_.
 
 
 
+``telegraf.config``
+^^^^^^^^^^^^^^^^^^^
+Manages the telegraf service configuration.
+Has a dependency on `telegraf.package`_.
+
+
+``telegraf.service``
+^^^^^^^^^^^^^^^^^^^^
+Starts the telegraf service and enables it at boot time.
+Has a dependency on `telegraf.config`_.
+
+
 ``telegraf.clean``
 ^^^^^^^^^^^^^^^^^^
 *Meta-state*.
@@ -153,24 +153,13 @@ uninstalls the package.
 ``telegraf.package.clean``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^
 Removes the telegraf package.
-Has a depency on `telegraf.config.clean`_.
+Has a dependency on `telegraf.config.clean`_.
 
 
 ``telegraf.package.repo.clean``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 This state will remove the configured telegraf repository.
 This works for apt/dnf/yum/zypper-based distributions only by default.
-
-
-``telegraf.config.clean``
-^^^^^^^^^^^^^^^^^^^^^^^^^
-Removes the configuration of the telegraf service and has a
-dependency on `telegraf.service.clean`_.
-
-
-``telegraf.service.clean``
-^^^^^^^^^^^^^^^^^^^^^^^^^^
-Stops the telegraf service and disables it at boot time.
 
 
 ``telegraf.plugins.clean``
@@ -191,6 +180,17 @@ Stops the telegraf service and disables it at boot time.
 ``telegraf.plugins.smart.clean``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+
+
+``telegraf.config.clean``
+^^^^^^^^^^^^^^^^^^^^^^^^^
+Removes the configuration of the telegraf service and has a
+dependency on `telegraf.service.clean`_.
+
+
+``telegraf.service.clean``
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+Stops the telegraf service and disables it at boot time.
 
 
 

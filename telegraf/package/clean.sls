@@ -2,7 +2,7 @@
 
 {#-
     Removes the telegraf package.
-    Has a depency on `telegraf.config.clean`_.
+    Has a dependency on `telegraf.config.clean`_.
 #}
 
 {%- set tplroot = tpldir.split("/")[0] %}

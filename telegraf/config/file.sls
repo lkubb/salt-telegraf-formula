@@ -3,7 +3,7 @@
 {%- set tplroot = tpldir.split("/")[0] %}
 {%- set sls_plugins_setup = tplroot ~ ".plugins.setup" %}
 {%- from tplroot ~ "/map.jinja" import mapdata as telegraf with context %}
-{%- from tplroot ~ "/libtofs.jinja" import files_switch with context %}
+{%- from tplroot ~ "/libtofsstack.jinja" import files_switch with context %}
 
 include:
   - {{ sls_plugins_setup }}
@@ -11,8 +11,10 @@ include:
 Telegraf secrets are managed:
   file.managed:
     - name: {{ telegraf.lookup.envfile }}
-    - source: {{ files_switch(['etc/default/telegraf'],
-                              lookup='Telegraf secrets are managed'
+    - source: {{ files_switch(
+                    ["etc/default/telegraf"],
+                    config=telegraf,
+                    lookup="Telegraf secrets are managed",
                  )
               }}
     - template: jinja
